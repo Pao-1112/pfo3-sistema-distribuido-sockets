@@ -1,22 +1,18 @@
 # Arquitectura Distribuida Orientada a Eventos basada en Sockets
 
-Repositorio correspondiente al trabajo práctico de Sistemas Distribuidos. El proyecto implementa una arquitectura distribuida orientada a eventos utilizando sockets en Python, un pool de hilos para procesamiento concurrente, balanceo de carga, cola de mensajes y un esquema de almacenamiento distribuido.
+Repositorio correspondiente al trabajo práctico de sistemas distribuidos de la materia **Programación Sobre Redes** de la **Tecnicatura en Desarrollo de Software** del **IFTS N° 29** (Año 2026). 
+
+El proyecto (`pfo3-sistema-distribuido-sockets`) implementa una arquitectura orientada a servicios utilizando sockets en Python, simulación de workers concurrentes, balanceo de carga y componentes de almacenamiento distribuido.
 
 ---
 
-## Descripción del Sistema
-
-El sistema sigue una arquitectura por capas para procesar tareas asíncronas de manera escalable:
-
-1. **Clientes (Web / Móvil):** Inician solicitudes enviando cargas de trabajo (*payloads*) mediante conexiones TCP / WebSockets.
-2. **Balanceador de Carga (Nginx / HAProxy):** Distribuye equitativamente las conexiones entrantes entre los nodos servidores disponibles.
-3. **Servidores Socket (Listeners):** Reciben las solicitudes del cliente y publican las tareas en la cola de mensajes.
-4. **Cola de Mensajes (RabbitMQ):** Actúa como intermediario desacoplado, distribuyendo las tareas recibidas a los trabajadores disponibles.
-5. **Workers (Pool de Hilos):** Nodos de procesamiento que consumen las tareas de la cola y ejecutan la lógica concurrente a través de un pool de hilos (`ThreadPoolExecutor`).
-6. **Almacenamiento Distribuido:**
-   * **PostgreSQL Cluster:** Guarda datos relacionales y de estado.
-   * **Amazon S3 / MinIO:** Almacena objetos y archivos pesados generados durante el procesamiento.
-
+## Descripción del Proyecto
+El sistema simula el flujo de un entorno distribuido real:
+1. Los **clientes** (web/móvil) envían tareas mediante peticiones de red.
+2. El **balanceador de carga** (Nginx / HAProxy) distribuye el tráfico hacia los servidores disponibles.
+3. Los **servidores de sockets** reciben las peticiones y las delegan mediante una **cola de mensajes** (RabbitMQ).
+4. Un pool de **workers** procesa las tareas de forma concurrente utilizando hilos.
+5. Los resultados y datos del sistema se persisten en un clúster de **PostgreSQL** y almacenamiento de objetos (**Amazon S3 / MinIO**).
 ---
 
 ## Diagrama de Arquitectura
@@ -27,12 +23,11 @@ El sistema sigue una arquitectura por capas para procesar tareas asíncronas de 
 
 ## Tecnologías Utilizadas
 
-* **Lenguaje:** Python 3.x
-* **Comunicación & Concurrencia:** `socket`, `threading`, `concurrent.futures` (`ThreadPoolExecutor`)
-* **Serialización:** JSON
-* **Balanceo de Carga:** Nginx / HAProxy
-* **Cola de Mensajes:** RabbitMQ
-* **Almacenamiento:** PostgreSQL, Amazon S3 / MinIO
+**Python 3.x (compatible con Python 3.10, 3.11, 3.12, etc.):** Lenguaje base para la implementación de sockets y concurrencia.
+- **Sockets TCP/IP & `concurrent.futures`:** Para la comunicación de red y el manejo del pool de hilos (`ThreadPoolExecutor`).
+- **Nginx / HAProxy:** Balanceo de carga.
+- **RabbitMQ:** Encolamiento y distribución de tareas asíncronas.
+- **PostgreSQL & Amazon S3:** Almacenamiento relacional y de objetos.
 
 ---
 
@@ -42,8 +37,8 @@ Sigue estos pasos para probar la interacción entre el servidor socket y el clie
 
 ### 1. Clonar el repositorio
 ```bash
-git clone https://github.com/<tu-usuario>/sistema-distribuido-sockets.git
-cd sistema-distribuido-sockets
+git clone https://github.com/<tu-usuario>/pfo3-sistema-distribuido-sockets.git
+cd pfo3-sistema-distribuido-sockets
 ```
 
 ### 2. Iniciar el Servidor
@@ -60,7 +55,7 @@ python cliente.py
 
 ---
 
-## 📂 Estructura del Repositorio
+## Estructura del Repositorio
 
 ```text
 .
