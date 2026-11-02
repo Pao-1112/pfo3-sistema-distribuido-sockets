@@ -37,7 +37,7 @@ Sigue estos pasos para probar la interacción entre el servidor socket y el clie
 
 ### 1. Clonar el repositorio
 ```bash
-git clone https://github.com/<tu-usuario>/pfo3-sistema-distribuido-sockets.git
+git clone https://github.com/Pao-1112/pfo3-sistema-distribuido-sockets.git
 cd pfo3-sistema-distribuido-sockets
 ```
 
