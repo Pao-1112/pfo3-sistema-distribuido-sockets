@@ -35,9 +35,11 @@ El sistema simula el flujo de un entorno distribuido real:
 
 Sigue estos pasos para probar la interacción entre el servidor socket y el cliente en tu entorno local:
 
-### 1. Clonar el repositorio
+### 1. Clonar el repositorio y entrar a la carpeta
 ```bash
 git clone https://github.com/Pao-1112/pfo3-sistema-distribuido-sockets.git
+```
+```bash
 cd pfo3-sistema-distribuido-sockets
 ```
 
