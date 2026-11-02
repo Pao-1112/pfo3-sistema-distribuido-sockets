@@ -23,7 +23,7 @@ El sistema simula el flujo de un entorno distribuido real:
 
 ## Tecnologías Utilizadas
 
-**Python 3.x (compatible con Python 3.10, 3.11, 3.12, etc.):** Lenguaje base para la implementación de sockets y concurrencia.
+- **Python 3.x (compatible con Python 3.10, 3.11, 3.12, etc.):** Lenguaje base para la implementación de sockets y concurrencia.
 - **Sockets TCP/IP & `concurrent.futures`:** Para la comunicación de red y el manejo del pool de hilos (`ThreadPoolExecutor`).
 - **Nginx / HAProxy:** Balanceo de carga.
 - **RabbitMQ:** Encolamiento y distribución de tareas asíncronas.
